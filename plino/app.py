@@ -66,7 +66,7 @@ def api_v1():
 # REST API v1
 @app.route('/api/v1/lookup', methods=['POST'])
 @app.route('/api/v1/lookup/', methods=['POST'])
-def api_v1():
+def lookup():
     if not request.json or not 'text' in request.json.get('query', {}).get('message', {}):
         abort(400)
 
