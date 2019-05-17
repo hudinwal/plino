@@ -73,7 +73,7 @@ def lookup():
     email_class = ham_or_spam(request.json['query']['message']['text'])["category"]
     json_data = {
         'status': 200,
-        'text': request.json['text'],
+        'text': request.json['query']['message']['text'],
         'class': email_class
     }
 
