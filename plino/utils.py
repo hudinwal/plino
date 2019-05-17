@@ -42,13 +42,6 @@ def ham_or_spam(email_text):
                         trainer_object.extract_features(email_text)
                     )
         response = {'category': hamorspam, 'status': 'ok'}
-
-        # anything printed to the STDOUT will be stored in heroku's logs
-        print "TEXT: '{0}' :: RESPONSE : '{1}'".format(     
-                    email_text.replace("\n", " ").replace("\r", " "),     
-                    hamorspam
-                )
-
         return response
     except UnicodeEncodeError:
         hamorspam = 'UnicodeEncodeError'
