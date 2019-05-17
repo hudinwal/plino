@@ -1,5 +1,4 @@
 # https://github.com/tasdikrahman/spamfilter specific requirements
-python==2.7.16
 beautifulsoup4==4.6.0
 dill==0.2.6
 nltk==3.2.2
