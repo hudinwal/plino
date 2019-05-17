@@ -63,6 +63,21 @@ def api_v1():
 
     return jsonify(json_data), 200
 
+# REST API v1
+@app.route('/api/v1/lookup', methods=['POST'])
+@app.route('/api/v1/lookup/', methods=['POST'])
+def api_v1():
+    if not request.json or not 'text' in request.json.get('query', {}).get('message', {}):
+        abort(400)
+
+    email_class = ham_or_spam(request.json['query']['message']['text'])["category"]
+    json_data = {
+        'status': 200,
+        'text': request.json['text'],
+        'class': email_class
+    }
+
+    return jsonify(json_data), 200
 
 if __name__ == "__main__":
     app.run()
